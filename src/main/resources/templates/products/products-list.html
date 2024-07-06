@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+  <title th:text="${title} ?: 'Product'">Product</title>
+  <th:block th:replace="layout::link-css"></th:block>
+  <style>
+    #allProduct .newIn__item .icon--star {
+    color: gold;
+    }
+
+    #allProduct .newIn__item .price {
+        font-weight: 800;
+        font-family: math;
+    }
+
+    #allProduct .newIn__item h3 {
+        font-size: 16px;
+        padding-top: 15px;
+        color: rgba(0,0,0,0.63);
+    }
+
+    #allProduct .row {
+        justify-content: space-evenly;
+    }
+
+    #allProduct .col-md-4 {
+        width: 340px;
+    }
+    #allProduct .col-md-12 h2 {
+        font-family: Cormorant Upright;
+        font-size: 42px;
+        padding: 30px 0px 50px 0px;
+    }
+    div#allProduct {
+        padding: 150px 0px;
+    }
+  </style>
+</head>
+<body style="background: rgb(255, 247, 237);">
+<th:block th:replace="layout::navbar"></th:block>
+<div id="allProduct">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h2>Tất cả sản phẩm</h2>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4" th:each="product : ${products}">
+        <div class="newIn__item">
+          <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lv8p1cpo8al649"class="img-fluid"th:src="${product.imageData}" alt="Product Image">
+          <h3 th:text="${product.name}"></h3>
+          <div th:text="${product.price}" class="price"></div>
+          <div class="icon--star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="invisible">
+            <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-success btn-sm">Edit</a>
+            <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+            <form th:action="@{/cart/add}" method="post">
+              <input type="number" name="quantity" min="1" th:max="${product.quality}" value="1" class="form-control d-inline-block" style="width: 70px;">
+              <input type="hidden" th:value="${product.id}" name="productId"/>
+              <button type="submit" class="btn btn-warning btn-sm">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<th:block th:replace="layout::footer"></th:block>
+</body>
+</html>

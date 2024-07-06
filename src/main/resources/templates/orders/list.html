@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Danh sách hoá đơn</title>
+    <th:block th:replace="layout::link-css"></th:block>
+    <style>
+    select.form-control {
+        width: 130px;
+        margin-right: 10px;
+    }
+    section.container {
+        padding-top: 110px;
+    }
+    section.container .col-md-9 .infomation {
+        font-family: math;
+        font-size: 21px;
+    }
+
+    section.container .col-md-10 .row {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;background: white;margin-bottom: 30px;padding: 20px;border-radius: 10px;align-items: center;
+    }
+
+    section.container .col-md-3 {
+        width: 226px;
+    }
+
+    section.container .col-md-12 h1 {
+        font-family: 'Cormorant Upright';
+        margin-bottom: 50px;
+        font-size: 50px;
+    }
+        section.container {
+            padding-top: 110px;
+        }
+        section.container .infomation form {
+            display: flex;
+            margin-top: 10px;
+        }
+        .navbar li.nav-item ul {
+            background: var(--mauchudao);
+            border-radius: 5px;
+            width: 190px;
+            line-height: 30px;
+            opacity: 0;
+            visibility: hidden;
+            top: 35px;
+            height: 148px;
+        }
+        .navbar ul li a.nav-link, .navbar ul li a.nav-link.active {
+            font-size: 14px;
+        }
+        .navbar ul li a.nav-link {
+            color: white;
+            border-bottom: 1px solid var(--mauchudao);
+
+        }
+        .navbar ul li:hover ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar ul li a.nav-link.active {
+            color: rgba(255, 219, 176, 1);
+        }
+
+        .navbar ul li a.nav-link:hover {
+            color: rgba(255, 219, 176, 1);
+            border-bottom: 1px solid rgba(255, 219, 176, 1);
+        }
+        .navbar a.navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .navbar-brand span {
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            padding-left: 5px;
+        }
+
+        .navbar {
+            height: 100px;
+            background: var(--mauchudao);
+        }
+
+        .navbar .navbar-brand img {
+            width: 75px;
+            height: 75px;
+        }
+        :root {
+            --mauchudao: #9b7f70;
+        }
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
+</head>
+<body style="background: rgb(255, 247, 237);">
+<th:block th:replace="~{layout::navbar}"></th:block>
+<section layout:fragment="content" class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Danh sách hoá đơn</h1>
+        </div>
+    </div>
+    <div class="row" th:each="order : ${orders}">
+        <div class="col-md-10" style="width: 75%;">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="infomation">
+                        <span class="fw-bold">Mã hoá đơn: </span>
+                        <div class="maID d-inline-block" th:text="${order.id}">1</div>
+                        <span class="fw-bold"><br>Tên khách hàng: </span>
+                        <div class="username d-inline-block" th:text="${order.customerName}">Huỳnh Kiến Hào</div>
+                        <span class="fw-bold"><br>Địa chỉ giao hàng: </span>
+                        <div class="email d-inline-block" th:text="${order.shippingAddress}">202 Tô Hiệu, Tân Phú, TP.HCM</div>
+                        <span class="fw-bold"><br>Số điện thoại: </span>
+                        <div class="address d-inline-block" th:text="${order.phoneNumber}">0842822927	</div>
+                        <span class="fw-bold"><br>Email: </span>
+                        <div class="dateOfBirth d-inline-block" th:text="${order.email}">kienhao2209@gmail.com	</div>
+                        <span class="fw-bold"><br>Ghi chú: </span>
+                        <div class="role d-inline-block" th:text="${order.notes}">Nhớ giao hàng nhanh cho tôi nhé!</div>
+                        <span class="fw-bold"><br>Hình thức thanh toán: </span>
+                        <div class="role d-inline-block" th:text="${order.paymentMethod}">Thanh toán sau khi nhận hàng</div>
+                        <br>
+                        <form th:object="${order}" th:action="@{/order/admin/orders/update}" method="post">
+                            <input type="hidden" th:name="id" th:value="${order.id}">
+                            <select class="form-control" th:name="status">
+                                <option value="PENDING" th:selected="${order.status == 'PENDING'}">Pending</option>
+                                <option value="SHIPPED" th:selected="${order.status == 'SHIPPED'}">Shipped</option>
+                                <option value="DELIVERED" th:selected="${order.status == 'DELIVERED'}">Delivered</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>User list</title>
+    <th:block th:replace="layout::link-css"></th:block>
+    <style>
+        section.container {
+        padding-top: 110px;
+    }
+    section.container .infomation form {
+        display: inline-block;
+    }
+
+    section.container .col-md-9 .infomation {
+        font-family: math;
+    }
+
+    section.container .col-md-10 .row {box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;background: white;margin-bottom: 30px;padding: 20px;border-radius: 10px;align-items: center;}
+
+    section.container .col-md-3 {
+        width: 226px;
+    }
+
+    section.container .col-md-12 h1 {
+        font-family: 'Cormorant Upright';
+        margin-bottom: 50px;
+        font-size: 40px;
+    }
+    </style>
+</head>
+<body style="background: rgb(255, 247, 237);">
+<th:block th:replace="~{layout::navbar}"></th:block>
+<section layout:fragment="content" class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h1>Danh sách các thông tin</h1>
+        </div>
+    </div>
+    <div class="row" th:each="user : ${users}">
+        <div class="col-md-10" style="width: 75%;">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="image">
+                        <img src="images/user.jpg" alt="" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="infomation">
+                        <span class="fw-bold">ID: </span>
+                        <div class="maID d-inline-block" th:text="${user.id}">1</div>
+                        <span class="fw-bold"><br>Username: </span>
+                        <div class="username d-inline-block" th:text="${user.username}">kienhao2209</div>
+                        <span class="fw-bold"><br>Email: </span>
+                        <div class="email d-inline-block" th:text="${user.email}">kienhao2209@gmail.com</div>
+                        <span class="fw-bold"><br>Địa chỉ: </span>
+                        <div class="address d-inline-block" th:text="${user.address}">393 a, Thị Trấn Chợ Vàm, Huyện Phú Tân, Tỉnh An Giang.</div>
+                        <span class="fw-bold"><br>Date: </span>
+                        <div class="dateOfBirth d-inline-block" th:text="${user.dateOfBirth}">2010-12-06</div>
+                        <span class="fw-bold"><br>Role: </span>
+                        <div class="role d-inline-block" th:each="role : ${user.roles}" th:text="${role.name}">ADMIN</div>
+                        <br>
+                        <form th:action="@{/users/edit/{id}(id=${user.id})}" method="get">
+                            <button type="submit" class="btn btn-success btn-sm mt-1">Chỉnh sửa</button>
+                        </form>
+                        <form th:action="@{/users/delete/{id}(id=${user.id})}" method="post" onsubmit="return confirm('Are you sure you want to delete this user?')">
+                            <button type="submit" class="btn btn-danger btn-sm mt-1">Xoá thông tin</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

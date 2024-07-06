@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <th:block th:replace="layout::link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::navbar"></th:block>
+<div id="banner" class="bg-primary">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <div class="banner__title pt-5">
+                    <h2>Natural Perfume</h2>
+                    <p>Đắm mình trong hương, khẳng định phong cách.</p>
+                    <button class="btn--shopNow">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="newIn">
+    <div class="container text-center py-5">
+        <div class="row pb-5">
+            <div class="col-md-12">
+                <h2>New In</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="newIn__item">
+                    <img th:src="@{/images/New In/4.png}" alt="" class="img-fluid">
+                    <h3>BVLGARI AQVA</h3>
+                    <div class="price">199.000 đ</div>
+                    <div class="icon--star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="newIn__item">
+                    <img th:src="@{/images/New In/1.png}" alt="" class="img-fluid">
+                    <h3>Le Labo Another 13</h3>
+                    <div class="price">199.000 đ</div>
+                    <div class="icon--star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="newIn__item">
+                    <img th:src="@{/images/New In/2.png}" alt="" class="img-fluid">
+                    <h3>Acquadi Giò</h3>
+                    <div class="price">199.000 đ</div>
+                    <div class="icon--star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="newIn__item">
+                    <img th:src="@{/images/New In/3.png}" alt="" class="img-fluid">
+                    <h3>Dior Sauvage</h3>
+                    <div class="price">199.000 đ</div>
+                    <div class="icon--star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="banner2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="banner__title">
+                    <h2>Khám phá Bộ sưu tập Nước hoa Mới</h2>
+                    <h2>Giảm giá Đặc biệt 50%</h2>
+                    <div class="title--phu">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <span>Những mùi hương tinh tế và quyến rũ cho mùa hè này</span>
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                    <button class="btn--shopNow">Shop Now</button>
+                </div>
+            </div>
+            <div class="col-md-6 text-center py-5">
+                <img th:src="@{/images/banner.jpg}" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sanpham">
+    <div class="container text-center py-5">
+        <div class="row pb-5">
+            <div class="col-md-12">
+                <h2>Sản phẩm</h2>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Nam -->
+            <div class="col-md-4">
+                <div class="sanpham__item nam">
+                    <img th:src="@{/images/Sản phẩm/sản phẩm dành cho nam.jpg}" alt="" class="img-fluid">
+                    <div class="sanpham__item--title">Nam</div>
+                </div>
+            </div>
+            <!-- Nữ -->
+            <div class="col-md-4">
+                <div class="sanpham__item nu">
+                    <img th:src="@{/images/Sản phẩm/sản phẩm dành cho nữ.jpg}" alt="" class="img-fluid">
+                    <div class="sanpham__item--title">Nữ</div>
+                </div>
+            </div>
+            <!-- Best seller -->
+            <div class="col-md-4">
+                <div class="sanpham__item bestSeller">
+                    <img th:src="@{/images/Sản phẩm/best seller.jpg}" alt="" class="img-fluid">
+                    <div class="sanpham__item--title">Best seller</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ourMission">
+    <div class="container text-center">
+        <div class="row pb-5">
+            <div class="col-md-12">
+                <h2>Sứ mệnh của chúng tôi</h2>
+                <p>Tất cả sản phẩm của chúng tôi đều được lựa chọn cẩn thận để đảm bảo chúng phù hợp với giá trị cốt lõi mà chúng tôi mang lại</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div class="ourMission__icon">
+                    <i class="fa-solid fa-check"></i>
+                    <h6>Chất lượng cao</h6>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="ourMission__icon">
+                    <i class="fa-solid fa-user-nurse"></i>
+                    <h6>Nhân viên chuyên nghiệp</h6>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="ourMission__icon">
+                    <i class="fa-solid fa-check"></i>
+                    <h6>Thương hiệu uy tín</h6>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="ourMission__icon">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <h6>Phản hồi khách hàng</h6>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="ourMission__icon">
+                    <i class="fa-solid fa-money-bill"></i>
+                    <h6>Chính sách hoàn tiền</h6>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="layout::footer"></th:block>
+</body>
+</html>

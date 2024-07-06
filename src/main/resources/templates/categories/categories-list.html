@@ -6,11 +6,6 @@
     <title th:text="${title} ?: 'Categories List'">Categories List</title>
     <th:block th:replace="layout::link-css"></th:block>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-
         .container {
             padding-top: 50px;
         }
@@ -34,7 +29,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background: rgb(255, 247, 237);">
 <th:block th:replace="layout::navbar"></th:block>
 <section layout:fragment="content" class="container">
     <h1 class="mb-4">Categories List</h1>

@@ -333,7 +333,37 @@ div#weekendSale {
     background: var(--mauchudao);
     opacity: 0.7;
 }
+.navbar li.nav-item ul {
+    background: var(--mauchudao);
+    border-radius: 5px;
+    width: 190px;
+    line-height: 30px;
+    opacity: 0;
+    visibility: hidden;
+    top: 35px;
+    height: 148px;
+}
+.navbar ul li a.nav-link, .navbar ul li a.nav-link.active {
+    font-size: 14px;
+}
+.navbar ul li a.nav-link {
+    color: white;
+    border-bottom: 1px solid var(--mauchudao);
 
+}
+.navbar ul li:hover ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar ul li a.nav-link.active {
+    color: rgba(255, 219, 176, 1);
+}
+
+.navbar ul li a.nav-link:hover {
+    color: rgba(255, 219, 176, 1);
+    border-bottom: 1px solid rgba(255, 219, 176, 1);
+}
 .navbar a.navbar-brand {
     display: flex;
     align-items: center;

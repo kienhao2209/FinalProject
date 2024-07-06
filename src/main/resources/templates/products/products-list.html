@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}">
 <head>
   <title th:text="${title} ?: 'Product'">Product</title>
@@ -61,8 +61,8 @@
             <i class="fa-solid fa-star"></i>
           </div>
           <div class="invisible">
-            <a th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-success btn-sm">Edit</a>
-            <a th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+            <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-success btn-sm">Edit</a>
+            <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
             <form th:action="@{/cart/add}" method="post">
               <input type="number" name="quantity" min="1" th:max="${product.quality}" value="1" class="form-control d-inline-block" style="width: 70px;">
               <input type="hidden" th:value="${product.id}" name="productId"/>

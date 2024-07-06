@@ -34,7 +34,7 @@
 <nav th:fragment="navbar" class="navbar navbar-expand-lg fixed-top">
     <div class="container p-0">
         <a class="navbar-brand" href="/">
-            <img src="http://localhost:8080/images/logo__perfume.png" alt="" class="img-fluid">
+            <img th:src="@{images/logo__perfume.png}" alt="" class="img-fluid">
             <span>Perfume Palace</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,29 +48,33 @@
                 <li class="nav-item">
                     <a class="nav-link me-2" aria-current="page" href="/products">Sản phẩm</a>
                 </li>
-                <li sec:authorize="isAuthenticated()">
-                    <a class="nav-link me-2" aria-current="page" th:href="@{/order/orders}">Đơn hàng của bạn</a>
-                </li>
-                <li class="nav-item position-relative" sec:authorize="hasAuthority('ADMIN')">
-                    <a class="nav-link me-2 border-0" aria-current="page" href="">Danh mục sản phẩm</a>
-                    <ul class="position-absolute list-unstyled">
-                        <li>
-                            <a class="nav-link" aria-current="page" href="/users">Quản lý người dùng</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" aria-current="page" href="/order/admin/orders">Quản lý hoá đơn</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" aria-current="page" href="/categories">Quản lý danh mục</a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link me-2" aria-current="page" href="/products">Về chúng tôi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link me-2" aria-current="page" href="/products">Liên hệ</a>
                 </li>
+                <li class="nav-item">
+                    <div sec:authorize="hasAuthority('ADMIN')">
+                        <a class="nav-link me-2" aria-current="page" href="/users">Users</a>
+                    </div>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a class="nav-link me-2" aria-current="page" th:href="@{/order/orders}">Đơn hàng của bạn</a>
+                </li>
+                <li class="nav-item">
+                    <div sec:authorize="hasAuthority('ADMIN')">
+                        <a class="nav-link me-2" aria-current="page" href="/order/admin/orders">Hóa đơn</a>
+                    </div>
+                </li>
+                <!--  -->
+
+                <li class="nav-item">
+                    <div sec:authorize="hasAuthority('ADMIN')">
+                    <a class="nav-link me-2" aria-current="page" href="/categories">Category</a>
+                    </div>
+                </li>
+                <!--  -->
                 <li sec:authorize="!isAuthenticated()">
                     <a href="/login" class="btn btn-outline-light">Đăng nhập</a>
                 </li>

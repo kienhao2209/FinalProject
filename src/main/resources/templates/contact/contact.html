@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liên hệ - Perfume Palace</title>
+    <th:block th:replace="layout::link-css"></th:block>
+    <style>
+        #getInTouch h1, #comeWithUs h2, #customerService h1 {
+			font-family: Cormorant Upright;
+		    font-size: 60px;
+		    color: rgb(64, 63, 45);
+		}
+		div#getInTouch {
+    		background: rgba(235, 219, 210, 1);
+		}
+		#comeWithUs .col-md-6 img.img-fluid {
+		    margin: 50px 0px;
+		    border-radius: 20px;
+		    height: 400px;
+		    width: 300px;
+		    margin-right: 15px;
+		}
+		#comeWithUs .col-md-6 h4 {
+		    font-family: 'Cormorant Upright';
+		    color: rgb(220, 193, 178);
+		    font-weight: 800;
+		    font-size: 30px;
+		}
+		#comeWithUs .col-md-6 p, #customerService li {
+		    font-size: 16px;
+		    color: rgb(64, 63, 45);
+		}
+		div#customerService {
+		    background: rgba(235, 219, 210, 1);
+		    padding: 100px 0px;
+		}
+		button.btn--submit {
+		    padding: 9px 35px;
+		    font-size: 14px;
+		    background: var(--mauchudao);
+		    border: 1px solid var(--mauchudao);
+		    color: white;
+		    border-radius: 20px;
+		}
+        .navbar li.nav-item ul {
+            background: var(--mauchudao);
+            border-radius: 5px;
+            width: 190px;
+            line-height: 30px;
+            opacity: 0;
+            visibility: hidden;
+            top: 35px;
+            height: 148px;
+        }
+        .navbar ul li a.nav-link, .navbar ul li a.nav-link.active {
+            font-size: 14px;
+        }
+        .navbar ul li a.nav-link {
+            color: white;
+            border-bottom: 1px solid var(--mauchudao);
+
+        }
+        .navbar ul li:hover ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar ul li a.nav-link.active {
+            color: rgba(255, 219, 176, 1);
+        }
+
+        .navbar ul li a.nav-link:hover {
+            color: rgba(255, 219, 176, 1);
+            border-bottom: 1px solid rgba(255, 219, 176, 1);
+        }
+        .navbar a.navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .navbar-brand span {
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            padding-left: 5px;
+        }
+
+        .navbar {
+            height: 100px;
+            background: var(--mauchudao);
+        }
+
+        .navbar .navbar-brand img {
+            width: 75px;
+            height: 75px;
+        }
+        :root {
+            --mauchudao: #9b7f70;
+        }
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
+</head>
+<body style="background: rgb(255, 247, 237);">
+    <th:block th:replace="~{layout::navbar}"></th:block>
+    <div id="getInTouch">
+        <div class="container pt-5 mt-5">
+            <div class="row text-center">
+                <div class="col-md-12 py-5 my-5">
+                    <h1>Get in Touch</h1>
+                    <p>Feel free to contact us anytime. We love to hear from you soon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="comeWithUs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 pt-5 mt-5">
+                    <h2 class="pt-5">Come with us</h2>
+                    <h4>Just Home</h4>
+                    <p>An phú đông, Quận 12, Vietnam</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/365146484_255094943958540_5360892604982065859_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEZ1moIFH68btrIH7NZlc4uUH5eTGQG8lVQfl5MZAbyVbiIFbFoN1Eq2eXiJcRdPh7cAFxOt7Cc0UryQjKdeyO7&_nc_ohc=9IxWzwuZ0d8Q7kNvgEzsgLh&_nc_ht=scontent.fsgn2-4.fna&oh=00_AYCWtwc0mvhY8_IoK-bmg7TGj8VQkzw8xbjXtkbbXWOTxQ&oe=66904A10" alt="" class="img-fluid d-inline-block">
+                    <img src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/365154236_255349300599771_6785076667444278805_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEeeSIoG0omBkzVwHBG9SZn8lRKeIEVmj7yVEp4gRWaPlNidhE0_UlSr78_dAue_0rLs5OQUPJ-nwEk_ZE4xJ1i&_nc_ohc=zv4mxgVmmdMQ7kNvgFfjbqX&_nc_ht=scontent.fsgn2-5.fna&oh=00_AYAMECWJoqh0fgXc3QXDZkCPVa95CBLZ3zhS4A7EbJ6zQA&oe=66906B26" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="customerService">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Customer Service</h1>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Phone: 012.3344.566</li>
+                        <li class="mb-2">Email: support@perfumepalace.vn</li>
+                        <li class="mb-2">Monday - Friday 9:00am - 6:00pm</li>
+                    </ul>
+                </div>
+                <div class="col-md-6  text-center">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Your Name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Your Phone">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your Email">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write a message"></textarea>
+                    </div>
+                    <button class="btn--submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="layout::footer"></th:block>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Về chúng tôi - Perfume Palace</title>
+    <th:block th:replace="layout::link-css"></th:block>
+    <style>
+        #aboutUs .col-md-12 img {
+        border-radius: 30px;
+        width: 900px;
+        height: 900px;
+        }
+
+        #aboutUs .col-md-12 h1, #ecoway h2 {
+            padding: 50px 0px;
+            font-family: Cormorant Upright;
+            font-size: 70px;
+            color: rgb(179, 143, 123);
+            font-weight: 800;
+        }
+        #aboutUs .col-md-8 p.px-5 {
+            color: rgb(64, 63, 45);
+            font-size: 15px;
+        }
+        div#feedback {
+            background: rgba(235, 219, 210, 1);
+            padding: 100px 0px;
+        }
+        .col-md-6 img.img-fluid {
+            border-radius: 10px;
+        }
+        #feedback .col-md-6 {
+            width: 500px;
+        }
+        .col-md-6 img.img-fluid {
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        #ecoway .col-md-4 h5 {
+            font-family: 'Cormorant Upright';
+            font-size: 26px;
+        }
+        #ecoway .col-md-4 p {
+            font-size: 14px;
+        }
+        .navbar li.nav-item ul {
+            background: var(--mauchudao);
+            border-radius: 5px;
+            width: 190px;
+            line-height: 30px;
+            opacity: 0;
+            visibility: hidden;
+            top: 35px;
+            height: 148px;
+        }
+        .navbar ul li a.nav-link, .navbar ul li a.nav-link.active {
+            font-size: 14px;
+        }
+        .navbar ul li a.nav-link {
+            color: white;
+            border-bottom: 1px solid var(--mauchudao);
+
+        }
+        .navbar ul li:hover ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar ul li a.nav-link.active {
+            color: rgba(255, 219, 176, 1);
+        }
+
+        .navbar ul li a.nav-link:hover {
+            color: rgba(255, 219, 176, 1);
+            border-bottom: 1px solid rgba(255, 219, 176, 1);
+        }
+        .navbar a.navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .navbar-brand span {
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            padding-left: 5px;
+        }
+
+        .navbar {
+            height: 100px;
+            background: var(--mauchudao);
+        }
+
+        .navbar .navbar-brand img {
+            width: 75px;
+            height: 75px;
+        }
+        :root {
+            --mauchudao: #9b7f70;
+        }
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
+</head>
+<body style="background: rgb(255, 247, 237);">
+    <th:block th:replace="~{layout::navbar}"></th:block>
+    <div id="aboutUs">
+        <div class="container pt-5 mt-5 text-center">
+            <div class="row py-5">
+                <div class="col-md-12">
+                    <h1>Về chúng tôi</h1>
+                    <img src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/401611416_312309854903715_3496575608884714724_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH5Dk9FzLVnv4R48TACzEB9VJjqXPpT25lUmOpc-lPbmSdwrNlB_Qei8i6Au3hZ1ahq-9jKMj_9LzE7ruJ7502j&_nc_ohc=zEwCh3QqdRgQ7kNvgEkRGXy&_nc_ht=scontent.fsgn2-5.fna&oh=00_AYDZG9gSh66xmeS_OnZbqosqYJl5t_bh3QK1aE8vZOQ3tA&oe=66905163" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-8 offset-md-2 pt-5">
+                    <p class="px-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="feedback">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <img src="https://scontent.fsgn2-11.fna.fbcdn.net/v/t39.30808-6/374580368_272433878891313_5823213852042728734_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEfzcsHvZyHuu7yDOmxGNsGJNYtimCxPx8k1i2KYLE_H9bhYga2sVCMmGRzpmT7a5K9Anwc01Ph92Op4ACLXCx3&_nc_ohc=gtDlR2HzXNkQ7kNvgHSteaG&_nc_ht=scontent.fsgn2-11.fna&oh=00_AYDEG5ivdwc_PVMQMrvmG2NgfljjAU_TXBEQ75709rgdow&oe=66905E99" alt="" class="img-fluid">
+                    <img src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/366694124_259166286884739_3837770531238222069_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGRXrK9jeeg4PlKJ3yle5OiBUT0n6-Sd0wFRPSfr5J3TDhijvso2NqB2es6IyOgDuEpCYoHd0XA3D0zsyBZYe-c&_nc_ohc=WSB-rOnUzt4Q7kNvgHvTRZz&_nc_ht=scontent.fsgn2-5.fna&oh=00_AYCO84R8IKJl71thcJgWxmaVggXAURInND0lMqa0OlMXIA&oe=669038E7" alt="" class="img-fluid">
+                    <img src="https://scontent.fsgn2-11.fna.fbcdn.net/v/t39.30808-6/366797095_259166250218076_1640957481939815891_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFi7k751XNpN8X4YtacAVaER1cNX5JvbdFHVw1fkm9t0YDCNHmQefcjJWT2TRI7oi_iVY1uHZfQhGa79Wy-6T_F&_nc_ohc=YU__EUULHZ0Q7kNvgEKlMsj&_nc_ht=scontent.fsgn2-11.fna&oh=00_AYCwCU0EdLpL6fIziFnDSEQpQHQCWDQMRXIgTsmVRDaCUQ&oe=669033E7" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/366579347_261268903341144_4672316778421914276_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEEpDI0sh_jfrODoMtf3Mnuu7RCKPYiGmK7tEIo9iIaYohyP5YTulfP9LW_Un-dy53LQC6VGJFUQyPJewx9m2mp&_nc_ohc=5JJZ8UAeT88Q7kNvgE8iv9P&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYDoUDVmgXs1P3DY7cnHwWOYeIuIMiKvcN_HDjoIsZ4gqw&oe=669049AC" alt="" class="img-fluid">
+                    <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/366700680_259166256884742_3675592518328206600_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFmS-ESUh6OBAisr1_hoopewWo2zbx3g3nBajbNvHeDeRYg2gq0X13GFIpjNXT9MZjeZrTTyT_KcVWF6ZKkPPUi&_nc_ohc=1weyFMJYAG0Q7kNvgEzjQ7-&_nc_ht=scontent.fsgn2-8.fna&oh=00_AYAaTPhjteCb9voeD_Oyv4Nf9akJsfjESeyUbc2QBB8jCA&oe=66904A18" alt="" class="img-fluid">
+                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/366598191_259166266884741_740460853541461476_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGMahGIndPAQlq5GqLa3yicwPQKgzgF8A3A9AqDOAXwDWN3SoR1RS2kYTOC_dm63uL9rKCy6ujYbI1vA0Wovz6J&_nc_ohc=MudzkIs8hugQ7kNvgGf_G7G&_nc_ht=scontent.fsgn2-3.fna&oh=00_AYBX_q_8fbNvJyCyoA1qSvfdU9F1bU5kBmPOsqSzR90cGA&oe=669056AC" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ecoway">
+        <div class="container">
+            <div class="row text-center pt-3">
+                <div class="col-md-12 pt-5 pb-3">
+                    <h2>The Eco-Way</h2>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-md-4 mb-5">
+                    <h5>Zero Waste</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Sustainable</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Reusable</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="layout::footer"></th:block>
+</body>
+</html>

@@ -3,42 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>User Orders</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <th:block th:replace="layout::link-css"></th:block>
+    <style>
+        .navbar li.nav-item ul {
+            background: var(--mauchudao);
+            border-radius: 5px;
+            width: 190px;
+            line-height: 30px;
+            opacity: 0;
+            visibility: hidden;
+            top: 35px;
+            height: 148px;
+        }
+        .navbar ul li a.nav-link, .navbar ul li a.nav-link.active {
+            font-size: 14px;
+        }
+        .navbar ul li a.nav-link {
+            color: white;
+            border-bottom: 1px solid var(--mauchudao);
+
+        }
+        .navbar ul li:hover ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar ul li a.nav-link.active {
+            color: rgba(255, 219, 176, 1);
+        }
+
+        .navbar ul li a.nav-link:hover {
+            color: rgba(255, 219, 176, 1);
+            border-bottom: 1px solid rgba(255, 219, 176, 1);
+        }
+        .navbar a.navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .navbar-brand span {
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            padding-left: 5px;
+        }
+
+        .navbar {
+            height: 100px;
+            background: var(--mauchudao);
+        }
+
+        .navbar .navbar-brand img {
+            width: 75px;
+            height: 75px;
+        }
+        :root {
+            --mauchudao: #9b7f70;
+        }
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
 </head>
-<body>
-<div class="container">
-    <h2 class="mt-5">Your Orders</h2>
-    <table class="table mt-4">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Order ID</th>
-            <th scope="col">Customer Name</th>
-            <th scope="col">Shipping Address</th>
-            <th scope="col">Total Amount</th>
-            <th scope="col">Status</th>
-            <th scope="col">Order Date</th>
-            <th scope="col">Details</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="order, iterStat : ${orders}">
-            <td th:text="${iterStat.index + 1}"></td>
-            <td th:text="${order.id}"></td>
-            <td th:text="${order.customerName}"></td>
-            <td th:text="${order.shippingAddress}"></td>
-            <td th:text="${order.totalAmount}"></td>
-            <td th:text="${order.status}"></td>
-            <td>
-                <span th:if="${order.orderDate != null}"
-                      th:text="${#temporals.format(order.orderDate, 'dd/MM/yyyy HH:mm')}">Order Date</span>
-                <span th:unless="${order.orderDate != null}">N/A</span>
-            </td>
-            <td><a href="#" th:attr="data-target='#orderDetailsModal' + ${order.id}, data-toggle='modal'">Details</a></td>
-        </tr>
-        </tbody>
-    </table>
+<body style="background: rgb(255, 247, 237);">
+<th:block th:replace="~{layout::navbar}"></th:block>
+<div class="container mt-5 pt-5">
+    <h2 class="my-5 text-center" style="font-family: 'Cormorant Upright';font-size: 50px;">Đơn hàng của bạn</h2>
+    <div class="row text-center fw-bold">
+        <div class="col-md-1" style="border-right: 3px solid var(--mauchudao) !important;">#</div>
+        <div class="col-md-1" style="border-right: 3px solid var(--mauchudao) !important;">Mã đặt hàng</div>
+        <div class="col-md-2" style="border-right: 3px solid var(--mauchudao) !important;">Tên khách hàng</div>
+        <div class="col-md-3"style="border-right: 3px solid var(--mauchudao) !important;">Địa chỉ giao hàng</div>
+        <div class="col-md-1"style="border-right: 3px solid var(--mauchudao) !important;">Số lượng</div>
+        <div class="col-md-1"style="border-right: 3px solid var(--mauchudao) !important;">Trạng thái</div>
+        <div class="col-md-2"style="border-right: 3px solid var(--mauchudao) !important;">Ngày đặt hàng</div>
+        <div class="col-md-1"style="border-right: 3px solid var(--mauchudao) !important;">Xem chi tiết</div>
+    </div>
+    <div class="row text-center" style="border-top: 3px solid var(--mauchudao) !important;" th:each="order, iterStat : ${orders}">
+        <div class="col-md-1 py-3" style="border-right: 3px solid var(--mauchudao) !important;" th:text="${iterStat.index + 1}">1</div>
+        <div class="col-md-1 py-3" style="border-right: 3px solid var(--mauchudao) !important;" th:text="${order.id}">1</div>
+        <div class="col-md-2 py-3" style="border-right: 3px solid var(--mauchudao) !important;" th:text="${order.customerName}">Huỳnh Kiến Hào</div>
+        <div class="col-md-3 py-3"style="border-right: 3px solid var(--mauchudao) !important;" th:text="${order.shippingAddress}">202 Tô Hiệu, Tân Phú, TP.HCM</div>
+        <div class="col-md-1 py-3"style="border-right: 3px solid var(--mauchudao) !important;" th:text="${order.totalAmount}">2</div>
+        <div class="col-md-1 py-3"style="border-right: 3px solid var(--mauchudao) !important;" th:text="${order.status}">Đang giao hàng</div>
+        <div class="col-md-2 py-3"style="border-right: 3px solid var(--mauchudao) !important;">
+    		<span th:if="${order.orderDate != null}"
+                  th:text="${#temporals.format(order.orderDate, 'dd/MM/yyyy HH:mm')}">Order Date</span>
+            <span th:unless="${order.orderDate != null}">N/A</span>
+        </div>
+        <div class="col-md-1 py-3"style="border-right: 3px solid var(--mauchudao) !important;">
+            <a href="#" th:attr="data-target='#orderDetailsModal' + ${order.id}, data-toggle='modal'">Xem chi tiết</a>
+        </div>
+    </div>
 </div>
 
 <!-- Modal -->

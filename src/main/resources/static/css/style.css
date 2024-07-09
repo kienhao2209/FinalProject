@@ -253,7 +253,12 @@ div#weekendSale {
     margin: 0;
 }
 
-#banner .banner__title button.btn--shopNow, #banner2 button.btn--shopNow, #ourMission button.btn--shopNow, #weekendSale button.btn--shopNow, #contact .btn--send {
+#banner .banner__title button.btn--shopNow,
+#banner2 button.btn--shopNow,
+#ourMission button.btn--shopNow,
+#weekendSale button.btn--shopNow,
+#contact .btn--send,
+.button--add .btn--shopNow {
     padding: 9px 35px;
     font-size: 14px;
     background: var(--mauchudao);

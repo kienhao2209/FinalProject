@@ -60,7 +60,7 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
           </div>
-          <div class="invisible">
+          <div class="">
             <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-success btn-sm">Edit</a>
             <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
             <form th:action="@{/cart/add}" method="post">

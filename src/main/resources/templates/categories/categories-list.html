@@ -6,55 +6,55 @@
     <title th:text="${title} ?: 'Categories List'">Categories List</title>
     <th:block th:replace="layout::link-css"></th:block>
     <style>
-        .container {
-            padding-top: 50px;
+        .col-md-4.border-end h5 {
+            font-weight: 700 !important;
+            color: var(--mauchudao);
         }
-
-        .btn-add {
-            margin-bottom: 20px;
+        .col-md-4.py-3 {
+            font-size: 20px;
         }
-
-        .table {
-            background-color: #ffffff;
-        }
-
-        .table th {
-            background-color: #343a40;
-            color: #ffffff;
-        }
-
-        .table td,
-        .table th {
-            vertical-align: middle;
+        .col-md-4.py-3 a {
+            font-size: 17px;
+            padding: 7px 20px;
         }
     </style>
 </head>
 <body style="background: rgb(255, 247, 237);">
 <th:block th:replace="layout::navbar"></th:block>
-<section layout:fragment="content" class="container">
-    <h1 class="mb-4">Categories List</h1>
-    <a th:href="@{/categories/add}" class="btn btn-primary btn-add">Add New Category</a>
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="category : ${categories}">
-            <td th:text="${category.id}"></td>
-            <td th:text="${category.name}"></td>
-            <td>
-                <a th:href="@{/categories/edit/{id}(id=${category.id})}"
-                   class="btn btn-success btn-sm">Edit</a>
-                <a th:href="@{/categories/delete/{id}(id=${category.id})}"
-                   class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<section layout:fragment="content" class="container pt-5 mt-5">
+    <div class="row text-center pt-5">
+        <div class="col-md-12 ">
+            <h1 class="my-4" style="font-family: 'Cormorant Upright';font-size: 50px;">Danh sách danh mục</h1>
+        </div>
+    </div>
+    <div class="button--add my-4">
+        <button th:href="@{/categories/add}" class="btn--shopNow mb-4">Thêm danh mục mới</button>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 border-end" style="border-right: 3px solid var(--mauchudao) !important;">
+            <h5>Mã danh mục</h5>
+        </div>
+        <div class="col-md-4 border-end" style="border-right: 3px solid var(--mauchudao) !important;">
+            <h5>Tên danh mục</h5>
+        </div>
+        <div class="col-md-4 border-end" style="border-right: 3px solid var(--mauchudao) !important;">
+            <h5>Hành động</h5>
+        </div>
+    </div>
+    <div class="row text-center" style="border-top: 3px solid var(--mauchudao) !important;" th:each="category : ${categories}">
+        <div class="col-md-4 py-3" style="border-right: 3px solid var(--mauchudao) !important;" th:text="${category.id}">
+            <p class="m-0"></p>
+        </div>
+        <div class="col-md-4 py-3" style="border-right: 3px solid var(--mauchudao) !important;" th:text="${category.name}">
+            <p class="m-0"></p>
+        </div>
+        <div class="col-md-4 py-3" style="border-right: 3px solid var(--mauchudao) !important;">
+            <a th:href="@{/categories/edit/{id}(id=${category.id})}"
+               class="btn btn-success btn-sm">Edit</a>
+            <a th:href="@{/categories/delete/{id}(id=${category.id})}"
+               class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+        </div>
+    </div>
 </section>
 </body>
 </html>

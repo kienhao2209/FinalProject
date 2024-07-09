@@ -38,38 +38,45 @@
         });
     </script>
 </head>
-<body>
+<body style="background: rgb(255, 247, 237);">
 <th:block th:replace="layout::navbar"></th:block>
-<section layout:fragment="content" class="container mt-3">
-    <h1>Your Cart</h1>
-    <div th:if="${cartItems.isEmpty()}" class="alert alert-info">Your cart is
-        empty.</div>
-    <table class="table" th:unless="${cartItems.isEmpty()}">
-        <thead class="table-light">
-        <tr>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="item : ${cartItems}">
-            <td th:text="${item.product.name}"></td>
-            <td>
-                <input type="number" class="form-control d-inline-block quantity-input" style="width: 70px;"
-                       name="quantity" min="1" th:max="${item.product.quality}" th:value="${item.quantity}"
-                       data-product-id="${item.product.id}">
-            </td>
-            <td>
-                <a th:href="@{/cart/remove/{productId}(productId=${item.product.id})}" class="btn btn-danger btn-sm">Remove</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
-    <div class="mt-3">
-        <a th:href="@{/cart/clear}" class="btn btn-secondary">Clear Cart</a>
-        <a th:href="@{/order/checkout}" class="btn btn-primary">Check Out</a>
+<section layout:fragment="content" class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="pt-5 mb-4" style="font-family: 'Cormorant Upright';font-size: 50px;">Giỏ hàng của bạn</h1>
+        </div>
+    </div>
+    <div th:if="${cartItems.isEmpty()}" class="alert alert-info mb-5">Giỏ của bạn trống trơn.</div>
+    <div th:unless="${cartItems.isEmpty()}">
+        <div class="row text-center">
+            <div class="col-md-4 border-end" style="border-right: 3px solid var(--mauchudao) !important;">
+                <h5>Tên sản phẩm</h5>
+            </div>
+            <div class="col-md-4 border-end" style="border-right: 3px solid var(--mauchudao) !important;">
+                <h5>Số lượng</h5>
+            </div>
+            <div class="col-md-4 border-end" style="border-right: 3px solid var(--mauchudao) !important;">
+                <h5>Chức năng</h5>
+            </div>
+        </div>
+        <div class="row text-center" style="border-top: 3px solid var(--mauchudao) !important;" th:each="item : ${cartItems}">
+            <div class="col-md-4 py-3" style="border-right: 3px solid var(--mauchudao) !important;" th:text="${item.product.name}">
+                <p class="m-0"></p>
+            </div>
+            <div class="col-md-4 py-3" style="border-right: 3px solid var(--mauchudao) !important;">
+                <input type="number" class="form-control d-inline-block quantity-input" style="width: 70px;" name="quantity" min="1" th:max="${item.product.quality}" th:value="${item.quantity}" data-product-id="${item.product.id}">
+            </div>
+            <div class="col-md-4 py-3" style="border-right: 3px solid var(--mauchudao) !important;">
+                <a th:href="@{/cart/remove/{productId}(productId=${item.product.id})}" class="btn btn-danger btn-sm">Xoá đơn hàng</a>
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="button--add">
+                <a th:href="@{/cart/clear}" class="btn--shopNow text-decoration-none" style="background-color: rgba(255, 247, 237, 1);
+		        color: var(--mauchudao);">Dọn dẹp giỏ hàng</a>
+                <a th:href="@{/order/checkout}" class="btn--shopNow text-decoration-none">Thanh toán hàng</a>
+            </div>
+        </div>
     </div>
 </section>
 </body>

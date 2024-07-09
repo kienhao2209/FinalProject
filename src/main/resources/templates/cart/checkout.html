@@ -5,39 +5,147 @@
 <head>
     <title th:text="${title} ?: 'Your Cart'">Place Order</title>
     <th:block th:replace="layout::link-css"></th:block>
+    <style>
+        section.container .brand img.img-fluid {
+    		width: 75px;
+		}
+		section.container .col-md-8.offset-md-2 {
+		    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+		    padding: 40px;
+		    background: var(--mauchudao);
+		    border-radius: 10px;
+		}
+		.brand span {
+		    font-size: 25px;
+		    font-weight: 700;
+		    display: block;
+			margin-bottom: 10px;
+		}
+		.brand p {
+		    font-style: italic;
+		    font-size: 14px;
+		    font-family: 'Prata';
+		}
+		section.container button {
+		    width: 100%;
+		    background: rgba(255, 247, 237, 1);
+		    color: var(--mauchudao);
+		    font-weight: 800;
+		    border: 1px solid var(--mauchudao);
+		}
+		section.container button:hover {
+		    background: var(--mauchudao);
+		    color: rgba(255, 247, 237, 1);
+		    border: 1px solid rgba(255, 247, 237, 1);
+		}
+        .navbar li.nav-item ul {
+            background: var(--mauchudao);
+            border-radius: 5px;
+            width: 190px;
+            line-height: 30px;
+            opacity: 0;
+            visibility: hidden;
+            top: 35px;
+            height: 148px;
+        }
+        .navbar ul li a.nav-link, .navbar ul li a.nav-link.active {
+            font-size: 14px;
+        }
+        .navbar ul li a.nav-link {
+            color: white;
+            border-bottom: 1px solid var(--mauchudao);
+
+        }
+        .navbar ul li:hover ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar ul li a.nav-link.active {
+            color: rgba(255, 219, 176, 1);
+        }
+
+        .navbar ul li a.nav-link:hover {
+            color: rgba(255, 219, 176, 1);
+            border-bottom: 1px solid rgba(255, 219, 176, 1);
+        }
+        .navbar a.navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .navbar-brand span {
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            padding-left: 5px;
+        }
+
+        .navbar {
+            height: 100px;
+            background: var(--mauchudao);
+        }
+
+        .navbar .navbar-brand img {
+            width: 75px;
+            height: 75px;
+        }
+        :root {
+            --mauchudao: #9b7f70;
+        }
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
 </head>
-<body>
+<body style="background: rgb(255, 247, 237);">
 <th:block th:replace="layout::navbar"></th:block>
-<section layout:fragment="content" class="container mt-3">
-    <h1>Place Your Order</h1>
-    <form th:action="@{/order/submit}" method="post">
-        <div class="mb-3">
-            <label for="customerName" class="form-label">Your Name:</label>
-            <input type="text" id="customerName" name="customerName" class="form-control" required>
+<section layout:fragment="content" class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mt-3 pt-5 pb-4 text-center" style="font-family: 'Cormorant Upright';font-size: 50px;">Điền thông tin đặt hàng</h1>
         </div>
-        <!-- Add other fields for customer information -->
-        <!-- Example: Address, Phone Number, Email, etc. -->
-        <div class="mb-3">
-            <label for="shippingAddress" class="form-label">Shipping Address:</label>
-            <input type="text" id="shippingAddress" name="shippingAddress" class="form-control" required>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-light">
+            <div class="brand text-center">
+                <img src="http://localhost:8080/images/logo__perfume.png" alt="" class="img-fluid">
+                <span>Perfume Palace</span>
+                <p>"Mang đến cho bạn những mùi hương độc đáo, chỉ có tại Perfume Palace."</p>
+            </div>
+            <form th:action="@{/order/submit}" method="post">
+                <div class="mb-3">
+                    <label for="customerName" class="form-label">Họ tên:</label>
+                    <input type="text" id="customerName" name="customerName" class="form-control" required>
+                </div>
+                <!-- Add other fields for customer information -->
+                <!-- Example: Address, Phone Number, Email, etc. -->
+                <div class="mb-3">
+                    <label for="shippingAddress" class="form-label">Địa chỉ nhận hàng:</label>
+                    <input type="text" id="shippingAddress" name="shippingAddress" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">Số điện thoại:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Ghi chú:</label>
+                    <textarea id="notes" name="notes" class="form-control"></textarea>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn py-3">Đặt hàng</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="phoneNumber" class="form-label">Phone Number:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="notes" class="form-label">Notes:</label>
-            <textarea id="notes" name="notes" class="form-control"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Order</button>
-    </form>
+    </div>
+
     <!-- Add Order Information here -->
     <div th:if="${order != null}">
-        <h3>Order Information</h3>
+        <h3 class="mt-3 pt-5 pb-4 text-center" style="font-family: 'Cormorant Upright';font-size: 50px;">Order Information</h3>
         <p>Customer Name: <span th:text="${order.customerName}"></span></p>
         <!-- Add other order details as needed -->
     </div>
